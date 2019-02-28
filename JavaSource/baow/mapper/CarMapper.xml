@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="baow.dao.CarDAO">
+
+	<!-- 查   -->
+	<select id="getList" resultMap="VipCar">select * from car_vip_customer</select>
+	<resultMap id="VipCar" type="baow.entity.VipCar">
+		<result property="carNo" column="CVC_CAR_NO"/>
+	    <result property="belongName" column="CVC_BELONGNAME"/>
+	    <result property="mobile" column="CVC_MOBILE"/>
+	    <result property="orderDate" column="CVC_ORDERDATE"/>
+	    <result property="endDate" column="CVC_ENDDATE"/>
+	    <result property="state" column="CVC_STT"/>
+	</resultMap>
+	
+	<select id="getCarList" resultType="baow.entity.VipCar">select * from car_vip_customer</select>
+	
+<!-- 	<select id="getSingleCarInfo" parameterType="Map" resultType="baow.entity.VipCar"> -->
+	<select id="getSingleCarInfo" parameterType="Map" resultMap="VipCar">
+		select * from car_vip_customer 
+		<where>
+			<if test="carNo!=null">CVC_CAR_NO=#{carNo}</if>
+			<if test="belongName!=null">and CVC_BELONGNAME=#{belongName}</if>
+			<if test="mobile!=null">and CVC_MOBILE=#{mobile}</if>
+		</where>
+	</select>
+	<select id="getMultCarsInfo" parameterType="Map" resultMap="VipCar">
+		select * from car_vip_customer 
+		<where>
+			<if test="carNo!=null">
+				CVC_CAR_NO=#{carNo}
+			</if>
+			<if test="belongName!=null">
+				and CVC_BELONGNAME=#{belongName}
+			</if>
+			<if test="mobile!=null">
+				and CVC_MOBILE=#{mobile}
+			</if>
+		</where>
+	</select>
+	
+	<select id="getArrivedDateWithCarNo" resultType="long">select cvc_enddate from car_vip_customer where cvc_car_no=#{carNo}</select>
+	
+	<select id="getVipCarsNum" resultType="int">select count(*) from car_vip_customer</select>
+	
+</mapper>
