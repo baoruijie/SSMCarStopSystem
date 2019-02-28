@@ -26,7 +26,7 @@ public class CarController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	
-	//http://localhost:8080/SSMCarStopSystem/hello.do
+	//http://localhost:8888/SSMCarStopSystem/hello.do
 	@RequestMapping("/hello")
 	public void test(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
