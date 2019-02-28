@@ -62,7 +62,7 @@ public class JunitTest {
 		if(g.getFlag().equals("1")){
 			System.out.println("一路顺风");
 		}else{
-			System.out.println("缴费x元");
+			System.out.println("缴费x元...");
 			//计算应缴纳多少停车费
 		}
 //		//完成后将该条记录删除，并将停车记录保存到历史表。此处应有事务支持。
