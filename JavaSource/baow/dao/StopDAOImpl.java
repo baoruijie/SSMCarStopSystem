@@ -1,6 +1,5 @@
 package baow.dao;
 
-import java.sql.SQLException;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
@@ -29,7 +28,7 @@ public class StopDAOImpl implements StopDAO {
 	public void saveAndDelete(CarStopHistory car)  {
 		garageDAO.deleteLeaveCar(car.getCarNo());
 		stopDAO.save(car);
-		System.out.println(9/0);
+//		System.out.println(9/0);
 		
 	}
 	@Override
