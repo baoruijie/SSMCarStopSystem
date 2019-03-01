@@ -25,6 +25,10 @@ public class StopDAOImpl implements StopDAO {
 	
 	@Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
 	@Override
+	/*
+	 * 测试事务。。
+	 * 方法不能有异常捕获或抛出，否则事务无法生效
+	 */
 	public void saveAndDelete(CarStopHistory car)  {
 		garageDAO.deleteLeaveCar(car.getCarNo());
 		stopDAO.save(car);
